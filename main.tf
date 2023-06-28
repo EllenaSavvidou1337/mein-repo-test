@@ -1,8 +1,10 @@
-# main.tf
+terraform {
+  required_version = ">= 1.4.0"
+}
 
 # Definiere Provider und Konfiguration
 provider "github" {
-  token = "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"
+  token = var.GITHUB_TOKEN
 }
 
 # Erstelle ein GitHub-Repository
