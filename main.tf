@@ -1,17 +1,15 @@
-terraform {
-  required_version = ">= 1.4.0"
+provider "azurerm" {
+  version = "<=2.0.0"
+
+subscription_id = var.subscription_id
+client_id = var.clientID
+client_secret = var.clientSecret
+tenant_id = var.tenantID
+
+features {}
 }
 
-# Definiere Provider und Konfiguration
-provider "github" {
-  token = var.GITHUB_TOKEN
+resource "azurerm_resource_group" "rg-test" {
+    name = var.resource_group_name
+    location = var.location
 }
-
-# Erstelle ein GitHub-Repository
-resource "github_repository" "example" {
-  name        = "mein-repo-test"
-  description = "Mein Beispiel-Repository"
-  visibility  = "public"
-}
-
-
